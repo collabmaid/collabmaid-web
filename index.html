@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CollabMaid | Coming Soon</title>
   <link rel="icon" type="image/png" href="simplelogo.png.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+       overflow: hidden;
     }
 
     body {
@@ -29,6 +34,7 @@
       content: "";
       position: absolute;
       top: 0;
+       overflow: hidden;
       left: 0;
       width: 100%;
       height: 100%;
@@ -37,10 +43,21 @@
     }
 
     .container {
-      position: relative;
+ overflow: hidden;
       z-index: 2;
       text-align: center;
       animation: fadeIn 2s ease-in-out;
+      display: flex;
+      
+      
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sub-container {
+      
+      
+      
     }
 
     .logo {
@@ -49,6 +66,7 @@
       animation: popIn 2s ease forwards;
       animation-delay: 0.5s;
     }
+
 
     h1 {
       font-size: 2.5rem;
@@ -61,6 +79,7 @@
     }
 
     .typewriter {
+      margin: auto;
       color: #e75480;
       font-size: 1.5rem;
       margin-top: 10px;
@@ -70,30 +89,57 @@
       width: 0;
       animation: typing 4s steps(25, end) forwards, blink 0.7s infinite;
       animation-delay: 2.5s;
+      margin-bottom: 50px;
     }
 
     @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes popIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     @keyframes fadeUp {
-      0% { transform: translateY(30px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
+      0% {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     @keyframes typing {
-      from { width: 0; }
-      to { width: 250px; }
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 250px;
+      }
     }
 
     @keyframes blink {
-      50% { border-color: transparent; }
+      50% {
+        border-color: transparent;
+      }
     }
 
     /* Floating bubbles */
@@ -105,11 +151,109 @@
       animation: rise 10s infinite ease-in;
     }
 
+
+    .join-btn {
+      background-color: transparent;
+      color: #e75480;
+      font-size: 1.5rem;
+      padding: 12px 30px;
+      margin: 10px;
+      border: 2px solid #e75480;
+      border-right: 3px solid #e75480;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .hire-btn {
+
+      font-size: 1.5rem;
+      padding: 12px 30px;
+      margin: 10px;
+      border: 2px solid #e75480;
+      border-right: 3px solid #e75480;
+      border-radius: 50px;
+      cursor: pointer;
+      color: white;
+      background-color: #e75480;
+      transition: all 0.3s ease;
+    }
+
+    .hire-btn:hover {
+      background-color: transparent;
+      color: #e75480;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(231, 84, 128, 0.4);
+    }
+
+    .join-btn:hover {
+      background-color: #e75480;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(231, 84, 128, 0.4);
+    }
+
+
+    /* Social Media Icons */
+    .social-icons {
+      margin: auto;
+
+      bottom: 20px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      color: #e75480;
+      font-size: 1.8rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #ff80a6;
+      transform: scale(1.2);
+    }
+
+
+
+    /* Header Contact Info */
+    .contact-info {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 1rem;
+    }
+
+    .contact-info a {
+      color: #e75480;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #ff80a6;
+      transform: scale(1.05);
+    }
+
+    .contact-info i {
+      font-size: 1.1rem;
+    }
+
     @keyframes rise {
       0% {
         transform: translateY(0) scale(1);
         opacity: 0.8;
       }
+
       100% {
         transform: translateY(-110vh) scale(1.5);
         opacity: 0;
@@ -118,17 +262,70 @@
 
     /* Responsive */
     @media (max-width: 600px) {
-      .logo { width: 150px; }
-      h1 { font-size: 1.8rem; }
-      .typewriter { font-size: 1.2rem; }
+      .logo {
+        width: 150px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .typewriter {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
+
+
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <a href="tel:+923229954914"><i class="fa-solid fa-phone"></i> +92 322 9954914</a>
+      <a href="mailto:info@collabmaid.com"><i class="fa-solid fa-envelope"></i> info@collabmaid.com</a>
+    </div>
+
+
+
+
+    <div class="sub-container">
+      
+
     <img src="CollabMaidLogo.png" alt="CollabMaid Logo" class="logo" />
     <h1>CollabMaid</h1>
     <div class="typewriter">Launching Soon...</div>
+
+
+    <a href="https://forms.gle/2sk4gSQkoYgWqj8z7" target="_blank" rel="noopener noreferrer">
+      <button class="hire-btn">Hire Maid</button>
+    </a>
+    <a href="https://forms.gle/iiQjXVfAdERaXxKk6" target="_blank" rel="noopener noreferrer">
+
+      <button class="join-btn">Join as Maid</button>
+
+
+
+
+    </a>
+
+
+
+    <div class="social-icons">
+      <a href="https://youtube.com/@collabmaid?si=6HL7fbvF4B5Uq9J1" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@collabmaid2025" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/collabmaid" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61580816744922&_rdc=6&_rdr#" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/CollabMaid" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+
+    </div>
+
+
+
+
+    </div>
   </div>
 
   <script>
@@ -149,6 +346,5 @@
     setInterval(createBubble, 500);
   </script>
 </body>
+
 </html>
-
-
